@@ -130,7 +130,7 @@ async function getUpdates(buf: string): Promise<any> {
   try {
     return await apiFetch('ilink/bot/getupdates', {
       get_updates_buf: buf,
-      base_info: { channel_version: '0.1.0' },
+      base_info: { channel_version: '0.2.0' },
     }, 35000)
   } catch (err: any) {
     if (err?.name === 'AbortError') {
@@ -151,7 +151,7 @@ async function sendMessage(to: string, text: string, contextToken: string): Prom
       item_list: [{ type: 1, text_item: { text } }],
       context_token: contextToken,
     },
-    base_info: { channel_version: '0.1.0' },
+    base_info: { channel_version: '0.2.0' },
   })
 }
 
@@ -323,7 +323,7 @@ function extractText(msg: any): string {
 // --- MCP Server ---
 
 const mcp = new Server(
-  { name: 'weixin', version: '0.1.0' },
+  { name: 'weixin', version: '0.2.0' },
   {
     capabilities: { tools: {}, experimental: { 'claude/channel': {} } },
     instructions: [
